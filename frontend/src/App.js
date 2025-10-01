@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
+import BiblePage from "./pages/BiblePage";
 
 // BACKEND URL
 const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8001';
@@ -40,6 +41,14 @@ const Home = () => {
           <img src="https://fenado.ai/fenado-logo.png" className="w-32 h-32 rounded-lg cursor-pointer" alt="Fenado Logo" />
         </a>
         <p className="mt-5">Your AI-powered app will appear here</p>
+        <div className="mt-8">
+          <a
+            href="/bible"
+            className="inline-block px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            Open Bible App
+          </a>
+        </div>
       </header>
     </div>
   );
@@ -50,9 +59,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/bible" element={<BiblePage />} />
         </Routes>
       </BrowserRouter>
     </div>
